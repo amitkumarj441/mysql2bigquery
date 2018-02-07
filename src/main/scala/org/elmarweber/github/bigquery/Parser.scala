@@ -1,6 +1,6 @@
 // Command Line Parser
 
-package org.mysqltest.github.bigquery
+package org.elmarweber.github.bigquery
 
 import java.io.File
 import javax.sql.DataSource
