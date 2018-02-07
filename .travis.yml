@@ -22,6 +22,10 @@ before_deploy:
   - export GIT_HASH=```git rev-parse --short HEAD```
 deploy:
   skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: Gqvzyz2S7tWZlbYMXstu/nmhuNWJGsI1X7ktHYqIvwXEorPqq9/vahLQ3H+i7WiBp97vyAjhZzB7NsTW/Fj0JGy+NRJntE2DqAw5oArlt/bxtz1AFZd62/gXpce1tDjKML4NCLx3DXowENGpWqE0USckduyR6LJWCa+CgBb+z/2Ze/p3voWbJTeGE6KhXHwE/yiEyTGBalGf2od2ubdxL+518AA6i7adKZLXyzWMD+4VzssRbtK+R4PDPfTL+hJNAvIVnOqozmMWlS1wWRYoPo4HezzFAL+IhoHTDydXdM3+a2qKBD1cqdByUx51BKpb5d7HZqX7HhdxEl+uYRuhtdfRp6RWixh4NqJhI+N5v+CkuwTXtnAimz0lyE8IMWsenx4Y+8MiKO2mvWB1K97IYIfqHn6+sNhie3ZZm0egy6UlCBdHLtP2LISAlAtMQ2laADMWfIGhZKTcQlFL+7avNcM0lKJAZ5HV/MB9l6bBi4CqGM3DzFzWrMeWRJlZqjrWANcTskW2sKhQ6eigdfXro3MI0yL7owFRexwuuhC0Zy7PffCWRc5Z0NDSeBwrK/yF0PO4hlNFzExdQmT2wtK3o5vpLyeMPsD/WRnhqj7jQ91AFjFCyjDnkY1wvvHxbgH7BEfZ2qfiIi8VEJ+e/TQfeH04RdKE1NgMu8V5pGoDaNs=
+  file: "target/mysql2bigquery_v1-${GIT_HASH}.deb"
   on:
     repo: amitkumarj441/mysql2bigquery
-branch: master
+    branch: master
