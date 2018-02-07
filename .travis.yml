@@ -1,0 +1,27 @@
+language: scala
+script:
+- sbt compile
+- sbt test
+- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- sbt docker:publish
+- sbt debian:packageBin
+- docker build -t elmarweber/mysql2bigquery:jenkins .
+- docker push elmarweber/mysql2bigquery:jenkins
+scala:
+- 2.12.4
+jdk:
+- openjdk8
+sudo: required
+services:
+- docker
+cache:
+  directories:
+  - "$HOME/.ivy2"
+  - "$HOME/.sbt"
+before_deploy:
+  - export GIT_HASH=```git rev-parse --short HEAD```
+deploy:
+  skip_cleanup: true
+  on:
+    repo: amitkumarj441/mysql2bigquery
+branch: master
