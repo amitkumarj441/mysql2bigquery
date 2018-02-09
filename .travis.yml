@@ -11,7 +11,7 @@ scala:
 - 2.12.4
 jdk:
 - openjdk8
-sudo: false
+sudo: required
 services:
 - docker
 cache:
