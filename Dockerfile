@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+LABEL Amit Kumar Jaiswal <amitkumarj441@gmail.com>
+
 ENV TERM linux
 
 RUN apt-get update && \
